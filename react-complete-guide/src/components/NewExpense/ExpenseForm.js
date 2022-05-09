@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // You can have multiple useState slices used and its normal ::::
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -40,7 +40,8 @@ const ExpenseForm = () => {
       date: new Date(enteredDate),
     };
 
-    console.log(expenseData);
+
+    props.onSaveExpenseData(expenseData);
     // Clear inputs after submitting
     setEnteredTitle("");
     setEnteredDate("");
