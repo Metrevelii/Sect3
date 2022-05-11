@@ -1,5 +1,5 @@
 // import other pieces from react library
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
@@ -11,24 +11,25 @@ const ExpenseItem = (props) => {
   // hooks must be called inside directal functions
   // useState returns array where first value is variable itself (value) and second is updating function
   const [title, setTitle] = useState(props.title);
-  
-  
+
   const clickHandler = () => {
     // title = 'Updated!';
-    setTitle('Updated!');
+    setTitle("Updated!");
   };
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2>{title}</h2>
-        <div className="expense-item__price">{props.amount}</div>
-      </div>
-      <button onClick={clickHandler}>Change Title</button>
-    </Card>
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          <h2>{title}</h2>
+          <div className="expense-item__price">{props.amount}</div>
+        </div>
+        <button onClick={clickHandler}>Change Title</button>
+      </Card>
+    </li>
   );
-}
+};
 
 // to use the component, we should export it. and import it to main JS file -- App.js this time
 export default ExpenseItem;
